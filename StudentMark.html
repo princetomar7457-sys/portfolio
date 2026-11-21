@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navratri Fast Eligibility</title>
+</head>
+<body>
+    <script>
+        
+const students = [
+    { name: "Rahul", marks: 85 },
+    { name: "Priya", marks: 32 },
+    { name: "Amit", marks: 67 },
+    { name: "Sneha", marks: 90 },
+    { name: "Kiran", marks: 28 }
+];
+
+function studentReport(students) {
+
+
+    const updatedStudents = students.map(student => {
+        return {
+            name: student.name,
+            marks: Math.min(student.marks + 5, 100)
+        };
+    });
+
+    
+    const passedStudents = updatedStudents.filter(student => {
+        return student.marks >= 40;
+    });
+
+    
+    const totalMarks = passedStudents.reduce((sum, student) => {
+        return sum + student.marks;
+    }, 0);
+
+    const averageMarks = totalMarks / passedStudents.length;
+
+    
+    console.log("Passing Students:");
+
+    passedStudents.forEach(student => {
+        console.log(student.name + " : " + student.marks);
+    });
+
+    return {
+        passedStudents: passedStudents,
+        averageMarks: averageMarks
+    };
+}
+
+
+(function () {
+    const report = studentReport(students);
+
+    console.log("Average Marks: " + report.averageMarks.toFixed(2));
+})();
+
+    </script>
+    </body>
+    </html>
