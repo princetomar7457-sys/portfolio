@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navratri Fast Eligibility</title>
+</head>
+<body>
+
+    <h2>Navratri Fast Eligibility</h2>
+
+    <label>Enter your age:</label>
+    <input type="number" id="age" placeholder="Enter age">
+
+    <button onclick="checkEligibility()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkEligibility() {
+            let age = Number(document.getElementById("age").value);
+
+            if (document.getElementById("age").value === "" || age < 0) {
+                document.getElementById("result").innerHTML =
+                    "Please enter a valid age";
+            }
+            else if (age >= 18) {
+                document.getElementById("result").innerHTML =
+                    "Eligible for Navratri fast";
+            }
+            else {
+                document.getElementById("result").innerHTML =
+                    "Under 18: Please consult a parent or guardian";
+            }
+        }
+    </script>
+
+</body>
+</html>
